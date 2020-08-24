@@ -29,7 +29,7 @@ Things you may want to cover:
 |------|----|-------|
 |emil|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many :groups, through: :group_users
 - has_many :group_users
