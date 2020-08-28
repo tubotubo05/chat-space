@@ -1,0 +1,20 @@
+.Chat-main
+  .main-header
+    .main-header__group
+      .groupName
+        test
+      .memberList
+        Member：
+        .group__Member
+          sample
+    = link_to "#", class: "edit-btn" do
+      Edit
+  .messages
+  .Footer
+    %form.new_message
+      .input-box
+        %input{type:"text",class:"input-box__text",placeholder:"type a message"}
+        %label{class:"input-box__image"}
+          = icon('fas','image')
+          %input{type:"file",class:"boxFile"}
+      %input{type:"submit",class:"submit-btn",value:"Send"}

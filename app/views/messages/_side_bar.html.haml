@@ -1,0 +1,19 @@
+.Chat-side
+  .side-header
+    .side-header__box
+      %p.side-header__box__username
+        名前 
+      %ul.side-header__box__icons
+        %li.side-header__box__edit
+          = link_to "#" do
+            = icon('fas', 'edit')
+        %li.sdie-header__box__new
+          =link_to "#" do
+            = icon('fas', 'cog')
+  .groups
+    .group
+      = link_to "#", class:"group" do
+        .groups__group__name
+          test
+        .groups__group__message
+          まだメッセージがありません
