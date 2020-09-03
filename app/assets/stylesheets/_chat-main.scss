@@ -30,7 +30,7 @@
       text-decoration: none;
     }
   }
-  .messages {
+  .MessageField {
     background-color: #fafafa;
     box-sizing: border-box;
     padding: 35px 40px 0;
@@ -46,17 +46,17 @@
     form {
       display: flex;
       justify-content: space-between;
-      .input-box {
+      .Form__contents {
         width: 100%;
         background-color: #ffffff;
         position: relative;
-        &__text {
+        .Form__inputContent {
           border: none;
           height: 50px;
           width: 100%;
           padding: 0 45px 0 15px;
         }
-        &__image {
+        .Form__inputImage {
           height: 50px;
           position: absolute;
           right: 10px;
@@ -65,7 +65,7 @@
             font-size: 25px;
           }
 
-          .boxFile {
+          .Hidden {
           display: none;
           }
         }

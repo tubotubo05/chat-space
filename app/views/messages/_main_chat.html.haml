@@ -2,19 +2,22 @@
   .main-header
     .main-header__group
       .groupName
-        test
+        = @group.name
       .memberList
         Member：
-        .group__Member
-          sample
-    = link_to "#", class: "edit-btn" do
+        - @group.users.each do |user|
+          = user.name
+    = link_to edit_group_path(@group.id), class:"edit-btn" do
       Edit
-  .messages
+
+  .MessageField
+    = render @messages
+
   .Footer
-    %form.new_message
-      .input-box
-        %input{type:"text",class:"input-box__text",placeholder:"type a message"}
-        %label{class:"input-box__image"}
-          = icon('fas','image')
-          %input{type:"file",class:"boxFile"}
-      %input{type:"submit",class:"submit-btn",value:"Send"}
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Form__contents
+        = f.text_field :content, class: 'Form__inputContent', placeholder: 'type a message'
+        = f.label :image, class: 'Form__inputImage' do
+          = icon('far', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'Hidden'
+      = f.submit 'Send', class: 'submit-btn'

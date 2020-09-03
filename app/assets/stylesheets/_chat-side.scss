@@ -34,8 +34,11 @@
     .group {
       box-sizing: border-box;
       padding: 20px 0 40px;
-      text-decoration: none;
+      a {
+        text-decoration: none;
       color: #ffffff;
+      }
+      
       .groups__group__name {
         font-size: 15px;
         }
