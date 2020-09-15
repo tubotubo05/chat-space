@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="MessageBox">
+      `<div class="MessageBox" data-message-id=${message.id}>
           <div class="MessageInfo">
             <div class="MessageInfo__userName">
               ${message.user_name}
@@ -21,7 +21,7 @@ $(function(){
       return html;
     } else {
       let html =
-      `<div class="MessageBox">
+      `<div class="MessageBox" data-message-id=${message.id}>
         <div class="MessageInfo">
           <div class="MessageInfo__userName">
             ${message.user_name}
@@ -41,13 +41,13 @@ $(function(){
   }
 
   $('.Form').on('submit', function(e){
-    e.preventDefault()
+    e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
     $.ajax({
-      url: url,  //同期通信でいう『パス』
-      type: 'POST',  //同期通信でいう『HTTPメソッド』
-      data: formData,  
+      url: url,
+      type: "POST",
+      data: formData,
       dataType: 'json',
       processData: false,
       contentType: false
@@ -58,9 +58,12 @@ $(function(){
       $('form')[0].reset();
       $('.MessageField').animate({ scrollTop: $('.MessageField')[0].scrollHeight});
     })
-    .fail(function(){
+    .always(function(){
+      $(".submit-btn").prop('disabled', false);
+    })
+    .fail(function() {
       alert("メッセージ送信に失敗しました");
+      $('.submit-btnt').prop("disabled", false);
     });
-    return false;
   });
 });
